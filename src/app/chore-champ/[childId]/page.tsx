@@ -898,9 +898,22 @@ export default function ChildChorePage() {
     allPast.sort((a, b) => new Date(b.instanceDueDate).getTime() - new Date(a.instanceDueDate).getTime());
     allCompleted.sort((a, b) => new Date(b.completedOn).getTime() - new Date(a.completedOn).getTime());
 
+    // Limit past chores to a max of 50 or last 3 months - whichever is met first
+    const threeMonthsAgo = new Date(today);
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+    threeMonthsAgo.setHours(0, 0, 0, 0);
+
+    const limitedPastChores = allPast
+      .filter((chore) => {
+        const choreDate = new Date(chore.instanceDueDate);
+        choreDate.setHours(0, 0, 0, 0);
+        return choreDate >= threeMonthsAgo;
+      })
+      .slice(0, 50);
+
     return { 
         upcomingChores: allUpcoming,
-        pastChores: allPast,
+        pastChores: limitedPastChores,
         completedChores: allCompleted 
     };
 
