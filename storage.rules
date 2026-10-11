@@ -1,0 +1,19 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow public, unauthenticated read access to the logos folder.
+    // This is necessary for public assets like the application logo.
+    match /logos/{allPaths=**} {
+      allow read: if true;
+      allow write: if false; // Disallow writes for everyone
+    }
+
+    // Allow authenticated users to read from the avatars folder.
+    // This protects user-specific images.
+    match /avatars/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if false; // Disallow writes for everyone
+    }
+  }
+}

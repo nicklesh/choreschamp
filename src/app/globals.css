@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 50% 98%; /* Very Light Tan - almost white */
+    --foreground: 210 20% 23%; /* Basalt Stones */
+
+    --card: 40 30% 96%; /* Lighter Tan */
+    --card-foreground: 210 20% 23%;
+
+    --popover: 210 25% 15%; /* Darker Basalt */
+    --popover-foreground: 40 50% 98%;
+
+    --primary: 210 20% 23%; /* Basalt Stones */
+    --primary-foreground: 0 0% 100%; /* White Dove */
+
+    --secondary: 80 30% 60%; /* Olive Green */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 15% 90%; /* Mist */
+    --muted-foreground: 210 15% 40%;
+
+    --accent: 28 100% 85%; /* Sunset Sky */
+    --accent-foreground: 210 20% 23%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 88%; /* Concrete */
+    --input: 210 15% 88%;
+    --ring: 80 30% 60%;
+
+    --radius: 0.5rem;
+
+    /* Custom Colors from Palette */
+    --basalt-stones: 210 20% 23%;
+    --white-dove: 0 0% 96%;
+    --olive-green: 80 30% 45%;
+    --sunset-sky: 28 100% 85%;
+    --bamboo-wood: 34 44% 75%;
+    --mist: 214 43% 91%;
+    --concrete: 0 0% 83%;
+    --lotus-flower: 337 68% 90%;
+
+    /* Variants */
+    --very-light-navy: 214 45% 95%;
+    --light-sunset-sky: 28 100% 92%;
+    --dark-sunset-sky: 28 90% 75%;
+    --very-dark-sunset-sky: 28 80% 65%;
+    --light-olive-green: 80 30% 85%;
+    --very-light-olive-green: 80 30% 95%;
+    --light-palm-leaf: 120 60% 95%;
+    --very-light-bamboo-wood: 34 44% 95%;
+    --dark-natural-light: 40 30% 92%;
+    --natural-light: 40 30% 96%;
+    --very-light-zen-garden: 150 40% 96%;
+  }
+
+  .dark {
+    /* Keeping dark theme same as light for now, can be customized later */
+    --background: 40 50% 98%;
+    --foreground: 210 20% 23%;
+    --card: 40 30% 96%;
+    --card-foreground: 210 20% 23%;
+    --popover: 210 25% 15%;
+    --popover-foreground: 40 50% 98%;
+    --primary: 210 20% 23%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 80 30% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 15% 90%;
+    --muted-foreground: 210 15% 40%;
+    --accent: 28 100% 85%;
+    --accent-foreground: 210 20% 23%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 80 30% 60%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
